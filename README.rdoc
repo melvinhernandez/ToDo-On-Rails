@@ -2,11 +2,13 @@
 == Week 1: ToDo-On-Rails
 ==== <em>Not just your typical ToDo app. This one is on Rails.</em>
 ---
-:section: Goals
-* Develop a ToDo app in under one week.
-* Deploy it to Heroku.
-* <em>Extra credit:</em> Design it and publish it to Behance/Dribbble.
-
-:section: Tech Used
-* Ruby on Rails
-* JavaScript <em>(Lightly)</em>
+# -----------------------------
+# :section: Goals
+# * Develop a ToDo app in under one week.
+# * Deploy it to Heroku.
+# * <em>Extra credit:</em> Design it and publish it to Behance/Dribbble.
+#-----------------------------
+# :section: Tech Used
+# * Ruby on Rails
+# * JavaScript <em>(Lightly)</em>
+# -----------------------------
