@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @todo_group.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @todo_group.description %>
+</p>
+<div id="todo_tasks_wrapper">
+  <div id="todo_tasks_container">
+    <%= render @todo_group.todo_tasks %>
+  </div>
+  <div id="todo_task_form">
+    <%= render "todo_tasks/form" %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_todo_group_path(@todo_group) %> |
+<%= link_to 'Back', todo_groups_path %>
