@@ -1,4 +1,16 @@
 <%= form_for([@todo_group, @todo_group.todo_tasks.build]) do |f| %>
+  <% if todo_group.todo_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(todo_group.todo_task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% todo_group.todo_task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= f.text_field :content, placeholder: "New ToDo Task" %>
   <%= f.submit %>
 

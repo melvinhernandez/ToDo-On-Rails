@@ -28,16 +28,16 @@ class TodoTasksController < ApplicationController
 
   private
 
-  def declare_todo_group
-    @todo_group = TodoGroup.find(params[:todo_group_id])
-  end
+    def declare_todo_group
+      @todo_group = TodoGroup.find(params[:todo_group_id])
+    end
 
-  def todo_task_params
-    params[:todo_task].permit(:content, :completed)
-  end
+    def todo_task_params
+      params[:todo_task].permit(:content, :completed)
+    end
 
-  def declare_todo_task
-    @todo_task = TodoTask.find(params[:id])
-  end
+    def declare_todo_task
+      @todo_task = TodoTask.find(params[:id])
+    end
 
 end
