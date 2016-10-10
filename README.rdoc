@@ -10,7 +10,7 @@
 ---
 == Tech Used
 * Ruby on Rails
-* JavaScript <em>(Lightly)</em>
+* Sass
 ---
 == Heroku Deployed
 {https://calm-tor-94897.herokuapp.com}
