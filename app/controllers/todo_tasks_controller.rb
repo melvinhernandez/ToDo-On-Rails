@@ -4,7 +4,7 @@ class TodoTasksController < ApplicationController
 
   def create
     @todo_task = @todo_group.todo_tasks.create(todo_task_params)
-    @todo_task.update_attribute(:completed, nil)
+    @todo_task.update_attribute(:completed, false)
     redirect_to @todo_group
   end
 
@@ -19,9 +19,9 @@ class TodoTasksController < ApplicationController
 
   def complete
     if @todo_task.completed?
-      @todo_task.update_attribute(:completed, nil)
+      @todo_task.update_attribute(:completed, false)
     else
-      @todo_task.update_attribute(:completed, Time.now)
+      @todo_task.update_attribute(:completed, true)
     end
     redirect_to @todo_group
   end

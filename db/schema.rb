@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006040031) do
+ActiveRecord::Schema.define(version: 20161010224445) do
 
   create_table "todo_groups", force: true do |t|
     t.string   "title"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20161006040031) do
 
   create_table "todo_tasks", force: true do |t|
     t.string   "content"
-    t.datetime "completed"
+    t.boolean  "completed"
     t.integer  "todo_group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
