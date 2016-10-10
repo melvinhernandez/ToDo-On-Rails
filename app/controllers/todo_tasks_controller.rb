@@ -4,17 +4,17 @@ class TodoTasksController < ApplicationController
 
   def create
     @todo_task = @todo_group.todo_tasks.create(todo_task_params)
+    @todo_task.update_attribute(:completed, nil)
     redirect_to @todo_group
   end
 
   def destroy
     @todo_task = @todo_group.todo_tasks.find(params[:id])
     if @todo_task.destroy
-      flash[:success] = "ToDo Task has been deleted."
+      redirect_to @todo_group
     else
-      flash[:error] = "ToDo Task could not be deleted."
+      redirect_to @todo_group
     end
-    redirect_to @todo_group
   end
 
   def complete
@@ -23,7 +23,7 @@ class TodoTasksController < ApplicationController
     else
       @todo_task.update_attribute(:completed, Time.now)
     end
-    redirect_to @todo_group, notice: "Task was completed!"
+    redirect_to @todo_group
   end
 
   private

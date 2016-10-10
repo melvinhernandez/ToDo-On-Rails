@@ -1,27 +1,21 @@
-<h1>Listing todo_groups</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @todo_groups.each do |todo_group| %>
-      <tr>
-        <td><%= todo_group.title %></td>
-        <td><%= todo_group.description %></td>
-        <td><%= link_to 'Show', todo_group %></td>
-        <td><%= link_to 'Edit', edit_todo_group_path(todo_group) %></td>
-        <td><%= link_to 'Destroy', todo_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="groups_wrapper">
+  <h1>ToDo Groups</h1>
+  <% @todo_groups.each do |todo_group| %>
+    <%= link_to todo_group do %>
+      <div class="task">
+        <h2><%= todo_group.title %></h2>
+        <p><%= todo_group.description %></p>
+        <div class="tasks_size">
+          <p><%= pluralize(todo_group.todo_tasks.size, "Task") %></p>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+  <div class="new_group_link">
+    <%= link_to 'New Task Group', new_todo_group_path %>
+  </div>
 
-<br>
-
-<%= link_to 'New Todo group', new_todo_group_path %>
+  <div class="created_by">
+    Created by <a href="http://melvinhernandez.github.io">MelvinHernandez</a>
+  </div>
+</div>

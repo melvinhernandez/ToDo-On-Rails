@@ -1,7 +1,16 @@
-<% if !todo_task.completed? %>
-  <p><%= todo_task.content %></p>
-<% else %>
-  <p><strike><%= todo_task.content %></strike></p>
-<% end %>
-<%= link_to "Update", complete_todo_group_todo_task_path(@todo_group, todo_task.id), method: :patch %>
-<%= link_to "Delete", todo_group_todo_task_path(@todo_group, todo_task.id), method: :delete, data: {confirm: "Are you sure you want to delete this Task?"} %>
+<div  class="task_content">
+  <% if todo_task.completed? %>
+    <%= link_to complete_todo_group_todo_task_path(@todo_group, todo_task.id), method: :patch, class: "check_link"  do%>
+      <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+    <% end %>
+    <p class="task_blob completed_blob"><%= todo_task.content %></p>
+  <% else %>
+    <%= link_to complete_todo_group_todo_task_path(@todo_group, todo_task.id), method: :patch, class: "check_link"  do%>
+      <i class="fa fa-circle-o" aria-hidden="true"></i>
+    <% end %>
+    <div class="task_blob"><%= todo_task.content %></div>
+  <% end %>
+  <%= link_to todo_group_todo_task_path(@todo_group, todo_task.id), method: :delete, data: {confirm: "Are you sure you want to delete this Task?"}, class: "delete_link" do %>
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+  <% end %>
+</div>

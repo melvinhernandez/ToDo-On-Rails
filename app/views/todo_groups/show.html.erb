@@ -1,22 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="groups_wrapper">
 
-<p>
-  <strong>Title:</strong>
-  <%= @todo_group.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @todo_group.description %>
-</p>
-<div id="todo_tasks_wrapper">
-  <div id="todo_tasks_container">
-    <%= render @todo_group.todo_tasks %>
+  <h1 class="task_group_title">
+    <%= @todo_group.title %>
+  </h1>
+  <h3>
+    <%= @todo_group.description %>
+  </h3>
+  <div class="tasks-n-form">
+    <div id="todo_tasks_wrapper">
+      <div id="todo_tasks_container">
+        <%= render @todo_group.todo_tasks %>
+      </div>
+    </div>
+    <div id="todo_task_form">
+      <%= render "todo_tasks/form" %>
+    </div>
   </div>
-  <div id="todo_task_form">
-    <%= render "todo_tasks/form" %>
+  <p id="notice"><%= notice %></p>
+  <div class="group_meta_links">
+    <%= link_to 'Back', todo_groups_path %> |
+    <%= link_to 'Edit', edit_todo_group_path(@todo_group) %> |
+    <%= link_to 'Delete', todo_group_path, method: :delete, data: { confirm: 'Are you sure you want to delete this entire group?' } %>
   </div>
 </div>
-
-<%= link_to 'Edit', edit_todo_group_path(@todo_group) %> |
-<%= link_to 'Back', todo_groups_path %>
